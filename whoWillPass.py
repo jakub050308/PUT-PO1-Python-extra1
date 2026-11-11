@@ -62,4 +62,7 @@ for j in range(n):
     for i in range(n):
         check(room, i, j, result)
 
-print(result)
+for j in range(n):
+    for i in range(n):
+        print(result[i][j], end=" ")
+    print()
