@@ -42,8 +42,24 @@ for _ in range(k):
     if ans[0] == 'T':
         operations.append('T')
         indices.append(-1)
-        break
     else:
         o, i = ans.split()
         operations.append(o)
         indices.append(int(i))
+
+for i in range(k):
+    match operations[i]:
+        case 'T':
+            trans(m, n)
+            swapper = m
+            m = n
+            n = swapper
+        case "RR":
+            revR(indices[i], n)
+        case "RC":
+            revC(indices[i], m)
+
+for j in range(m):
+    for i in range(n):
+        print(mat[j][i], end=" ")
+    print()
