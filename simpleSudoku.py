@@ -15,6 +15,25 @@ def check(m):
 
     return True
 
+
+def rdiag(m):
+    zb = set()
+    for i in range(9):
+        zb.add(m[i][8-i])
+    if len(zb) != 9:
+        return False
+    return True
+
+
+def ldiag(m):
+    zb = set()
+    for i in range(9):
+        zb.add(m[i][i])
+
+    if len(zb) != 9:
+        return False
+    return True
+
 m = []
 
 for _ in range(9):
@@ -22,7 +41,9 @@ for _ in range(9):
     m.append(row)
 
 if check(m):
-    print(True)
-    #add checking for X
+    if ldiag(m) and rdiag(m):
+        print('X')
+    else:
+        print(True)
 else:
     print(False)
