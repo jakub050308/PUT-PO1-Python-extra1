@@ -4,7 +4,7 @@ def check(s):
     else:
         return False
 
-s = input()
+s = input().lower()
 palindrome = False
 if check(s):
     palindrome = True
