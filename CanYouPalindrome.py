@@ -18,8 +18,18 @@ while palindrome == False:
     break
 
 while palindrome == False:
-    pass
-    # with 2 removed
+    for i in range(len(s)):
+        for j in range(len(s)):
+            if abs(i-j) <= 1:
+                result = s[:min(i,j)] + s[max(i,j)+1::]
+            else:
+                result = s[:min(i,j)] + s[min(i,j)+1:max(i,j)] + s[max(i,j)+1::]
+
+            if check(result):
+                palindrome = True
+                break
+        if palindrome:
+            break
     break
 
 if palindrome:
