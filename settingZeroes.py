@@ -1,3 +1,4 @@
+import copy
 def zeroR(par, lim):
     global result
     for v in range(lim):
@@ -9,26 +10,22 @@ def zeroC(par, lim):
         result[v][par] = 0
 
 N, M = [int(x) for x in input().split()]
-print(N, M)
+# print(N, M)
 mat = []
 result = []
 for _ in range(N):
     row = list(map(int, input().split()))
-    print(row)
+    # print(row)
     mat.append(row)
-    result.append(row)
+
+result = copy.deepcopy(mat)
 
 for i in range(N):
     for j in range(M):
         if mat[i][j] == 0:
-            zeroR(i, N)
-            zeroC(j, M)
+            zeroR(i, M)
+            zeroC(j, N)
 
-
-for i in range(N):
-    for j in range(M):
-        print(mat[i][j], end=" ")
-    print()
 
 for i in range(N):
     for j in range(M):
